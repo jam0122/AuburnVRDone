@@ -3,6 +3,10 @@
   "main": "server.js",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">=10.16.3 <=10.16.3",
+    "npm": ">=6.9.0 <=6.9.0"
+  },
   "dependencies": {
     "aframe-watcher": "^1.4.0",
     "bootstrap": "^4.3.1",
