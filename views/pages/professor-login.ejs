@@ -1,0 +1,34 @@
+<!-- views/pages/professor-login.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body class="container">
+
+        <header>
+            <% include ../partials/header %>
+        </header>
+
+        <main>
+            <div class="jumbotron">
+                <form action="professor-view" method="GET">
+                    <div class="form-group">
+                        <label for="auburn_id">Auburn ID</label>
+                        <input type="text" class="form-control" id="auburn_id" name="auburn_id" placeholder="Enter Auburn ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <button id="orgBtn" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+    </body>
+</html>

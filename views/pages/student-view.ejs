@@ -1,0 +1,57 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body class="container">
+
+        <header>
+            <% include ../partials/header %>
+        </header>
+
+        <main>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="jumbotron">
+                        <form action="student-file-view" method="GET">
+                            <input type="text" name="session" id="session"/>
+                            <input type="submit" name="submit" value="submit"/>
+                        </form>
+                    </div>
+                    <form enctype="multipart/form-data" action="new-file-created-student" method="POST">
+                        <div class="form-group" >
+                            <label for="file">New File</label>
+                            <input type="file" class="form-control-file" id="file" name="upload">
+                            <input type="hidden" id="auburn_id" name="auburn_id" value="<%= auburn_id %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">submit file</button>
+                    </form>
+                    <ul>
+                        <% files.forEach(function(file){ %>
+                        
+                            <li>
+                                <form action="/student-file-view-solo" method="GET">
+                                    <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
+                                    <input type="hidden" name="file_name" value="<%= file.name %>">
+                                    <input type="submit" class="" value="<%= file.name %>">
+                                </form>
+                                <form action="/delete-file-student-view" method="POST">
+                                    <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
+                                    <input type="hidden" name="file_name" value="<%= file.name %>">
+                                    <input type="submit" class="" value="Delete">
+                                </form>
+                            </li>
+                        
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+    </body>
+</html>
