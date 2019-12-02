@@ -33,8 +33,10 @@
                         </form>
 
                         <ul class="list-group">
+                            <div class="container">
+                            <div class="row">
                             <% categories.forEach(function(category){ %>
-                                <li class="list-group-item" style="background-color: #e9ecef; border: #e9ecef">
+                                <li class="list-group-item col-sm-9" style="background-color: #e9ecef; border: #e9ecef">
                                     <div class="btn-group dropdown-toggle">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style ="background-color:#4682B4">
                                             <%= category.name %>
@@ -52,29 +54,37 @@
                                             
                                                 <% files.forEach(function(file){ 
                                                     if(file.category == category.name) { %>
-                                                        <form action="/professor-file-view" method="GET">
-                                                            <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
-                                                            <input type="hidden" name="file_name" value="<%= file.name %>">
-                                                            <input type="hidden" name="category" value="<%= category.name %>">
-                                                            <input type="submit" class="dropdown-item" value="<%= file.name %>">
-                                                        </form>
-                                                        <form action="/delete-file-professor-view" method="POST">
-                                                            <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
-                                                            <input type="hidden" name="file_name" value="<%= file.name %>">
-                                                            <input type="hidden" name="category" value="<%= category.name %>">
-                                                            <input type="submit" class="" value="Delete File">
-                                                        </form>
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <form class="col-sm-3" action="/professor-file-view" method="GET">
+                                                                    <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
+                                                                    <input type="hidden" name="file_name" value="<%= file.name %>">
+                                                                    <input type="hidden" name="category" value="<%= category.name %>">
+                                                                    <input type="submit" id="bluBtn" class="dropdown-item" value="<%= file.name %>">
+                                                                </form>
+                                                                <form class="col-sm-3" action="/delete-file-professor-view" method="POST">
+                                                                    <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
+                                                                    <input type="hidden" name="file_name" value="<%= file.name %>">
+                                                                    <input type="hidden" name="category" value="<%= category.name %>">
+                                                                    <input type="submit" id="orgBtn" class="dropdown-item" value="Delete File">
+                                                                </form>
+                                                            </div>
+                                                        </div>
                                                 <%  }}) %>
                                             
                                         </div>
                                     </div>
                                 </li>
-                                <form action="/delete-category" method="POST">
-                                    <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
-                                    <input type="hidden" name="category" value="<%= category.name %>">
-                                    <input type="submit" class="" value="Delete Category">
-                                </form>
+                                <li style="background-color: #e9ecef; border: #e9ecef">
+                                    <form class="col-sm-3" action="/delete-category" method="POST">
+                                        <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
+                                        <input type="hidden" name="category" value="<%= category.name %>">
+                                        <input type="submit" class="" style="background-color: #f7a841; border: #e9ecef; text-align;" value="Delete Category">
+                                    </form>
+                                </li>
                             <% }) %>
+                            </div>
+                            </div>
                         </ul>
                     </div>
                 </div>

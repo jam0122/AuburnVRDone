@@ -32,16 +32,20 @@
                         <% files.forEach(function(file){ %>
                         
                             <li>
-                                <form action="/student-file-view-solo" method="GET">
-                                    <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
-                                    <input type="hidden" name="file_name" value="<%= file.name %>">
-                                    <input type="submit" class="" value="<%= file.name %>">
-                                </form>
-                                <form action="/delete-file-student-view" method="POST">
-                                    <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
-                                    <input type="hidden" name="file_name" value="<%= file.name %>">
-                                    <input type="submit" class="" value="Delete">
-                                </form>
+                                <div class="container">
+                                    <div class="row">
+                                        <form class="col-sm-1"  action="/student-file-view-solo" method="GET">
+                                            <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
+                                            <input type="hidden" name="file_name" value="<%= file.name %>">
+                                            <input type="submit" class="" value="<%= file.name %>" id="subBtn">
+                                        </form>
+                                        <form class="col-sm-1" action="/delete-file-student-view" method="POST">
+                                            <input type="hidden" name="auburn_id" value="<%= auburn_id %>">
+                                            <input type="hidden" name="file_name" value="<%= file.name %>">
+                                            <input type="submit" class="" id="delBtn" value="Delete">
+                                        </form>
+                                    </div>
+                                </div>
                             </li>
                         
                         <% }) %>
