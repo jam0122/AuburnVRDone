@@ -829,6 +829,5 @@ app.post("/delete-category", (req, res) => {
     })
 })
 
-server.listen(5000, function() {
-    console.info("listening on port 5000")
-})
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
